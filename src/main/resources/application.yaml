@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: invoice-batch-system
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/invoice_batch_db
+    username: postgres
+    password: 2580
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  batch:
+    jdbc:
+      initialize-schema: always
