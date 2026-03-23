@@ -3,28 +3,24 @@ package com.example.invoicebatchsystem.repository;
 import com.example.invoicebatchsystem.entity.Invoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 /*
- * Repository interface for Invoice entity
- *
- * Java concept:
- * Interface = contract
- *
- * Spring concept:
- * By extending JpaRepository, we get built-in database methods like:
- * save(), findAll(), findById(), delete()
+ * Repository for Invoice entity.
  */
 public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
 
     /*
-     * Derived Query Method
-     *
-     * Spring reads this method name and automatically creates the query.
-     *
-     * Meaning:
-     * Check whether an invoice exists with the given invoiceNumber
-     *
-     * Return type:
-     * boolean -> true or false
+     * Used to prevent duplicate invoice inserts
      */
     boolean existsByInvoiceNumber(String invoiceNumber);
+
+    /*
+     * We need this method so we can fetch a specific invoice
+     * using invoice number like INV-001.
+     *
+     * Why Optional?
+     * Because invoice may or may not exist.
+     */
+    Optional<Invoice> findByInvoiceNumber(String invoiceNumber);
 }
