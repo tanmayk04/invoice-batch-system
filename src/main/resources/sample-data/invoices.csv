@@ -1,0 +1,5 @@
+invoiceNumber,customerName,amount,dueDate,status
+INV-101,Netflix,2500.00,2026-03-30,PENDING
+INV-102,Microsoft,8000.00,2026-04-02,PAID
+INV-103,Adobe,4200.00,2026-04-05,PENDING
+INV-104,Uber,1500.00,2026-04-08,PENDING
